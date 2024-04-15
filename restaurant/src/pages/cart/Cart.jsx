@@ -10,11 +10,11 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <div>
-        <h1 className="text-3xl text-center font-bold">Your cart Items</h1>
+    <div className="max-w-[1640px] mx-auto h-full p-4">
+      <div className="text-4xl text-center font-bold text-orange-500">
+        Your cart Items
       </div>
-      <div className="flex flex-col items-center justify-between flex-wrap w-auto ">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 py-6 m-auto">
         {data.map((product, idx) => {
           if (cartItems[product.id] !== 0) {
             return <CartItem data={product} key={idx} />;
@@ -23,28 +23,30 @@ const Cart = () => {
       </div>
 
       {totalAmount > 0 ? (
-        <div className="flex flex-col items-center justify-between flex-wrap w-auto">
-          <p>Subtotal: {totalAmount}</p>
-          <button
-            onClick={() => navigate("/")}
-            className="bg-emerald-400 rounded-xl min-w-20 p-2 m-2 hover:bg-gray-900 hover:text-white cursor-pointer"
-          >
-            Continue
-          </button>
-          <button className="bg-emerald-400 rounded-xl min-w-20 p-2 m-2 hover:bg-gray-900 hover:text-white cursor-pointer">
-            CheckOut
-          </button>
+        <div className="text-orange-500 font-bold m-4 text-center">
+          <p className="text-2xl m-2">Your Subtotal is: ${totalAmount}</p>
+          <div className="flex items-center justify-center flex-wrap w-auto">
+            <button
+              onClick={() => navigate("/")}
+              className="bg-gray-300 border-none rounded-xl min-w-20 py-2 m-4 hover:bg-gray-900 hover:text-white cursor-pointer"
+            >
+              Continue
+            </button>
+            <button className="bg-gray-300 border-none rounded-xl min-w-20 py-2 m-4 hover:bg-gray-900 hover:text-white cursor-pointer">
+              CheckOut
+            </button>
+          </div>
         </div>
       ) : (
-        <div>
-          <h1 className="text-2xl text-center mt-2">
-            "Your current Cart is empty"
-          </h1>
+        <div className="flex flex-col justify-center items-center p-4 mt-8">
+          <div className="text-2xl text-center font-bold m-2 p-2">
+            "Your Cart is empty, Please select Items"
+          </div>
           <button
             onClick={() => navigate("/")}
-            className="bg-emerald-400 rounded-xl min-w-20 p-2 m-2 hover:bg-gray-900 hover:text-white cursor-pointer"
+            className="border-none bg-orange-400 rounded-xl min-w-20 py-2 m-2 hover:bg-gray-900 hover:text-white cursor-pointer"
           >
-            GO back
+            Go Back
           </button>
         </div>
       )}

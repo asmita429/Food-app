@@ -3,7 +3,7 @@ import "../../data/data";
 
 const Hero = () => {
   return (
-    <div className="max-w-[1640px] mx-auto h-full p-4 mb-4">
+    <div className="max-w-[1640px] mx-auto h-full p-4">
       <div className="max-h-[630px] relative ">
         <div className="absolute w-full h-full  text-gray-100 max-h-[630px] bg-black/40 flex flex-col justify-center">
           <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">

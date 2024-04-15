@@ -29,7 +29,7 @@ const Food = () => {
   return (
     <div className="max-w-[1640px] m-auto px-4 py-12">
       <h1 className="text-orange-600 font-bold text-4xl text-center">
-        Top Rated Menu Items
+        Available Menu Items
       </h1>
 
       {/* Filter Row */}
@@ -115,14 +115,19 @@ const Food = () => {
               alt={item.name}
               className="w-full h-[200px] object-cover rounded-t-lg"
             />
-            <div className="flex justify-between px-2 py-4">
-              <p className="font-bold">{item.name}</p>
-              <button onClick={() => addToCart(item.id)}>Order Now</button>
-              <p>
-                <span className="bg-orange-500 text-white p-1 rounded-full">
-                  {item.price}
+            <div className="flex justify-between px-2 py-4 flex-wrap align-baseline">
+              <p className="font-bold m-[2px]">{item.name}</p>
+              <p className="m-[2px]">
+                <span className="text-orange-500 text-[18px] font-bold">
+                  ${item.price}
                 </span>
               </p>
+              <button
+                className="px-2 m-[2px] text-orange-500 border-orange-500 hover:bg-orange-500 hover:text-white"
+                onClick={() => addToCart(item.id)}
+              >
+                Order Now
+              </button>
             </div>
           </div>
         ))}

@@ -25,20 +25,20 @@ const HeadlineCards = () => {
 
   // create a like toggle button here
   return (
-    <div className="max-w-[1640px] mx-auto h-full p-4 mb-4 py-8">
+    <div className="max-w-[1640px] mx-auto h-full p-4  pt-8">
       <h1 className="text-orange-600 font-bold text-4xl text-center">
         Today's Highlights
       </h1>
 
-      <div className="w-[80%] m-auto p-4 h-full">
-        <div className="w-full h-full p-4 group flex justify-around items-center cursor-pointer">
+      <div className="w-[80%] m-auto p-4 h-full group">
+        <div className="w-full h-full p-2 flex justify-around items-center cursor-pointer ">
           {/* left arrow */}
           <div className="hidden group-hover:block -translate-x-0 translate-y-[-50%] text-orange-600">
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
           </div>
 
-          <div className="w-[60%] h-full bg-cover p-4 m-auto">
-            <Cards details={details[curIdx]} data={details} />
+          <div className="w-[60%] h-full bg-cover m-auto duration-500">
+            <Cards details={details[curIdx]} />
           </div>
 
           {/* right arrow */}
@@ -47,7 +47,7 @@ const HeadlineCards = () => {
           </div>
         </div>
 
-        <div className="flex justify-center py-1">
+        <div className="flex justify-center">
           {details.map((slide, slideIdx) => (
             <div
               key={slideIdx}

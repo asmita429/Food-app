@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { FaRegHeart } from "react-icons/fa6";
 
-const Cards = ({ details, data }) => {
-  // const [likeBtn, setLikeBtn] = useState(false);
-
-  // const handleClick = () => {
-  //   setLikeBtn(!likeBtn);
-  // };
-
+const Cards = ({ details }) => {
   return (
-    <div className="text-orange-500 p-4">
+    <div className="text-orange-500 p-2">
       {/* Overlay */}
       <div className="w-full h-full bg-black/50 rounded-xl text-white">
         <img
@@ -23,8 +17,11 @@ const Cards = ({ details, data }) => {
         <p>{details.second}</p>
 
         {/* create a toggle button */}
-        <div className="text-blue-300 mt-1 hover:text-orange-400">
-          <FaRegHeart size={25} />
+        <div className="mt-1 p-2 text-orange-400 ">
+          <FaRegHeart
+            size={25}
+            className="transition ease-in-out delay-150 hover:-translate-x-1 hover:scale-110 duration-300 hover:text-blue-400"
+          />
         </div>
       </div>
     </div>
