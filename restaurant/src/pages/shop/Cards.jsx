@@ -1,23 +1,32 @@
-import React, { useContext } from "react";
-import { ShopContext } from "../../context/shop-context";
+import React, { useState } from "react";
+import { FaRegHeart } from "react-icons/fa6";
 
 const Cards = ({ details, data }) => {
+  // const [likeBtn, setLikeBtn] = useState(false);
+
+  // const handleClick = () => {
+  //   setLikeBtn(!likeBtn);
+  // };
+
   return (
-    <div className="rounded-xl relative m-14  hover:scale-105 duration-300">
+    <div className="text-orange-500 p-4">
       {/* Overlay */}
-      <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
-        <p className="font-bold text-2xl px-2 pt-4">{details.first}</p>
-        <p className="px-2">{details.second}</p>
-        {/* create a toggle button */}
-        <button className="border-white bg-white text-black mx-2 absolute bottom-4 hover:bg-gray-900 hover:text-white">
-          Order now
-        </button>
+      <div className="w-full h-full bg-black/50 rounded-xl text-white">
+        <img
+          className="h-[300px] w-full object-cover rounded-xl "
+          src={details.url}
+          alt="/"
+        />
       </div>
-      <img
-        className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl "
-        src={details.url}
-        alt="/"
-      />
+      <div className="p-2 text-wrap">
+        <p className="font-bold text-2xl ">{details.first}</p>
+        <p>{details.second}</p>
+
+        {/* create a toggle button */}
+        <div className="text-blue-300 mt-1 hover:text-orange-400">
+          <FaRegHeart size={25} />
+        </div>
+      </div>
     </div>
   );
 };

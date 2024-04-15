@@ -25,22 +25,26 @@ const HeadlineCards = () => {
 
   // create a like toggle button here
   return (
-    <div className="w-[500px] m-auto px-4 py-12">
+    <div className="max-w-[1640px] mx-auto h-full p-4 mb-4 py-8">
       <h1 className="text-orange-600 font-bold text-4xl text-center">
         Today's Highlights
       </h1>
 
-      <div className=" m-auto py-2 rounded-3xl px-4 relative group">
-        <Cards details={details[curIdx]} />
+      <div className="w-[80%] m-auto p-4 h-full">
+        <div className="w-full h-full p-4 group flex justify-around items-center cursor-pointer">
+          {/* left arrow */}
+          <div className="hidden group-hover:block -translate-x-0 translate-y-[-50%] text-orange-600">
+            <BsChevronCompactLeft onClick={prevSlide} size={30} />
+          </div>
 
-        {/* left arrow */}
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-orange-600 cursor-pointer">
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div>
+          <div className="w-[60%] h-full bg-cover p-4 m-auto">
+            <Cards details={details[curIdx]} data={details} />
+          </div>
 
-        {/* right arrow */}
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-orange-600 cursor-pointer">
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
+          {/* right arrow */}
+          <div className="hidden group-hover:block -translate-x-0 translate-y-[-50%] text-orange-600">
+            <BsChevronCompactRight onClick={nextSlide} size={30} />
+          </div>
         </div>
 
         <div className="flex justify-center py-1">
@@ -48,7 +52,7 @@ const HeadlineCards = () => {
             <div
               key={slideIdx}
               onClick={() => gotoSlide(slideIdx)}
-              className=" text-gray-500 text-2xl cursor-pointer hover:text-orange-500"
+              className=" text-blue-300 text-2xl cursor-pointer hover:text-orange-500"
             >
               <RxDotFilled />
             </div>
